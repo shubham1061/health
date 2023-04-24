@@ -11,6 +11,8 @@ public class Employee{
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
       private long Id;
+	@Column(name ="email_id")
+	private String emailid;
 	@Column(name="first_name")
       private String firstname;
 	@Column(name="last_name")
@@ -26,8 +28,9 @@ public class Employee{
     	  
       }
       
-     public Employee(String firstname, String lastname, Integer sapid, String medicalhis,String prescription) {
+     public Employee(String emailid,String firstname, String lastname, Integer sapid, String medicalhis,String prescription) {
 		super();
+		this.emailid=emailid;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.sapid = sapid;
@@ -40,25 +43,35 @@ public class Employee{
 	public void setId(long id) {
 		this.Id = id;
 	}
+	public String getemailid() {
+		return emailid;
+	}
+	public void setemaild(String emailid) {
+		this.emailid = emailid;
+	}
+
 	public String getFirstname() {
 		return firstname;
 	}
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
+	
 	public String getLastname() {
 		return lastname;
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	
 	public Integer getsapid() {
 		return sapid;
 	}
-	public void setEmailid(Integer sapid) {
-		this.sapid = sapid;
+	public void setsapid() {
+		this.sapid=sapid;
 	}
-	public String getmedicalhis() {
+	
+	public String getmedicalhis(){
 		return medicalhis;
 	}
 	public void setmedicalhis(String medicalhis) {
