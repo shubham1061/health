@@ -1,22 +1,23 @@
 <h2>Patient List</h2>
 <table class="table table-striped">
      <thead>
-        <tr><th>Id</th>
-            <!-- <th>emailid</th> -->
+        <tr>
+            <!-- <th>Id</th> --> 
+            <th>Sap Id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Sap Id</th>
+            <th>emailid</th>
             <th>Medical History</th>
             <th>Prescription</th>
         </tr>
      </thead>
      <tbody>
         <tr *ngFor="let employee of employees">
-            <td>{{employee.Id}}</td>
-            <!-- <td>{{employee.emailid}}</td> -->
+            <!-- <td>{{employee.Id}}</td> -->
+            <td>{{employee.sapid}}</td>
             <td>{{employee.firstname}}</td>
             <td>{{employee.lastname}}</td>
-            <td>{{employee.sapid}}</td>
+            <td>{{employee.emailid}}</td>
             <td>{{employee.medicalhis}}</td>
             <td>{{employee.prescription}}</td>
            
