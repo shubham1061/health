@@ -10,22 +10,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateEmployeeComponent implements OnInit {
 
-  id: number;
+  Id: number;
   employee: Employee = new Employee();
   constructor(private employeeService: EmployeeService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.Id = this.route.snapshot.params['id'];
 
-    this.employeeService.getEmployeeById(this.id).subscribe(data => {
+    this.employeeService.getEmployeeById(this.Id).subscribe(data => {
       this.employee = data;
     }, error => console.log(error));
   }
 
   onSubmit(){
-    this.employeeService.updateEmployee(this.id, this.employee).subscribe( data =>{
+    this.employeeService.updateEmployee(this.Id, this.employee).subscribe( data =>{
       this.goToEmployeeList();
     }
     , error => console.log(error));

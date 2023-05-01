@@ -18,7 +18,7 @@ public class Employee{
 	@Column(name="last_name")
       private String lastname;
 	@Column(name="sap_id")
-      private Integer sapid;
+      private String sapid;
 	@Column(name="medical_history")
 	  private String medicalhis;
 	@Column(name="prescription")
@@ -28,7 +28,7 @@ public class Employee{
     	  
       }
       
-     public Employee(String emailid,String firstname, String lastname, Integer sapid, String medicalhis,String prescription) {
+     public Employee(String emailid,String firstname, String lastname, String sapid, String medicalhis,String prescription) {
 		super();
 		this.emailid=emailid;
 		this.firstname = firstname;
@@ -46,7 +46,7 @@ public class Employee{
 	public String getemailid() {
 		return emailid;
 	}
-	public void setemaild(String emailid) {
+	public void setemailid(String emailid) {
 		this.emailid = emailid;
 	}
 
@@ -64,10 +64,10 @@ public class Employee{
 		this.lastname = lastname;
 	}
 	
-	public Integer getsapid() {
+	public String getsapid() {
 		return sapid;
 	}
-	public void setsapid() {
+	public void setsapid(String sapid) {
 		this.sapid=sapid;
 	}
 	

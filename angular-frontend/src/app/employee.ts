@@ -1,9 +1,9 @@
 export class Employee {
-    // Id: number;
-    emailid: string;
-    firstname: string;
-    lastname: string;
-    sapid: number;
-    medicalhis:string;
-    prescription:string;
+    Id: number;
+    emailid: String;
+    firstname: String;
+    lastname: String;
+    sapid: String;
+    medicalhis:String;
+    prescription:String;
 }

@@ -1,6 +1,7 @@
-import { Component ,OnInit } from '@angular/core';
-import { Employee } from '../employee';
-import { EmployeeService } from '../employee.service';
+import { Component, OnInit } from '@angular/core';
+import { Employee } from '../employee'
+import { EmployeeService } from '../employee.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -9,18 +10,33 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees:Employee[];
-   
-  constructor(private employeeService: EmployeeService){}
+  employees: Employee[];
 
-  ngOnInit(): void{
-   this.getEmployees();
-}
+  constructor(private employeeService: EmployeeService,
+    private router: Router) { }
 
-private getEmployees(){
-this.employeeService.getEmployeesList().subscribe(res =>{
-  this.employees= res;
-});
+  ngOnInit(): void {
+    this.getEmployees();
+  }
 
-}
+  private getEmployees(){
+    this.employeeService.getEmployeesList().subscribe(data => {
+      this.employees = data;
+    });
+  }
+
+  employeeDetails(Id: number){
+    this.router.navigate(['employee-details',Id]);
+  }
+
+  updateEmployee(Id: number){
+    this.router.navigate(['update-employee/:id']);
+  }
+
+  deleteEmployee(Id: number){
+    this.employeeService.deleteEmployee(Id).subscribe( data => {
+      console.log(data);
+      this.getEmployees();
+    })
+  }
 }
